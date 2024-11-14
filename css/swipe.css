@@ -34386,6 +34386,42 @@ label {
     border-bottom-left-radius: 0 !important;
 }
 
+.card.bg-primary-soft {
+    background-color: #4A7B5A;
+}
+
+.card.bg-secondary-soft {
+    background-color: #516B77;
+}
+
+.card.bg-tertiary-soft {
+    background-color: #A67B4F;
+}
+
+.card .card-illustration {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 50%;
+    padding: 1rem;
+}
+
+.card .card-illustration img {
+    width: 100%;
+    height: auto;
+}
+
+.card .card-accent {
+    position: absolute;
+    bottom: -50px;
+    right: -50px;
+    width: 100px;
+    height: 100px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    pointer-events: none;
+}
+
 .card-lift-hover:hover {
     transform: translateY(-20px);
     transition: all 0.2s ease;
