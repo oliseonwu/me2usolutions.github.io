@@ -36927,11 +36927,42 @@ article a:hover {
 }
 
 blockquote {
-    font-size: 1.27rem;
-    background: #f5f9fc;
-    border-radius: 10px;
-    padding: 25px;
+    font-family: 'Sanchez', serif;
     font-style: italic;
+    font-weight: 400;
+}
+
+blockquote p.h3 {
+    font-size: 1.25rem;
+}
+
+@media (max-width: 767.98px) {
+    blockquote p.h3 {
+        font-size: 1.25rem;
+    }
+}
+
+@media (max-width: 575.98px) {
+    blockquote p.h3 {
+        font-size: 1rem;
+    }
+}
+
+blockquote .blockquote-footer {
+    font-size: 1.25rem;
+    font-weight: 700;
+}
+
+@media (max-width: 767.98px) {
+    blockquote .blockquote-footer {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 575.98px) {
+    blockquote .blockquote-footer {
+        font-size: 0.875rem;
+    }
 }
 
 .lead + .btn-wrapper {
