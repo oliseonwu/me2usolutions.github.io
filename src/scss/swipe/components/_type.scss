@@ -62,11 +62,34 @@ article {
 }
 
 blockquote {
-    font-size: 1.27rem;
-    background: #f5f9fc;
-    border-radius: 10px;
-    padding: 25px;
+    font-family: 'Sanchez', serif;
     font-style: italic;
+    font-weight: 400;
+
+    p.h3 {
+        font-size: $blockquote-font-size;
+        
+        @include media-breakpoint-down(md) {
+            font-size: $font-size-lg; // ~1.25rem
+        }
+        
+        @include media-breakpoint-down(sm) {
+            font-size: $font-size-base; // ~1rem
+        }
+    }
+
+    .blockquote-footer {
+        font-size: $font-size-lg;
+        font-weight: $font-weight-bolder;
+        
+        @include media-breakpoint-down(md) {
+            font-size: $font-size-base;
+        }
+        
+        @include media-breakpoint-down(sm) {
+            font-size: $font-size-sm;
+        }
+    }
 }
 
 .lead {
