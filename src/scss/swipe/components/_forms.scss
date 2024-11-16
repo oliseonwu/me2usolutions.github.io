@@ -1,5 +1,20 @@
 .form-control{
     box-shadow:none;
+    padding: 0.75rem 1rem;
+    font-size: 1rem;
+    border: 1px solid $input-border-color;
+    transition: all 0.2s ease;
+
+    @media (max-width: 768px) {
+        padding: 0.625rem 0.875rem;
+        font-size: 0.9375rem;
+    }
+
+    &:focus {
+        border-color: $input-focus-border-color;
+        background-color: $input-focus-bg;
+        box-shadow: $input-focus-box-shadow;
+    }
 
     &.form-control-lg{
         padding: $inpu-lg-padding-y $input-padding-x;
@@ -63,4 +78,55 @@
 }
 .file-field span {
     cursor: pointer;
+}
+
+// Form label styles
+.form-group label {
+    font-size: 0.95rem;
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+    color: $gray-700;
+
+    @media (max-width: 768px) {
+        font-size: 0.875rem;
+        margin-bottom: 0.375rem;
+    }
+}
+
+// Waitlist form specific styles
+.waitlist-form {
+    .form-group {
+        margin-bottom: 1.5rem;
+
+        @media (max-width: 768px) {
+            margin-bottom: 1.25rem;
+        }
+    }
+
+    .input-group {
+        border-radius: $border-radius;
+        overflow: hidden;
+    }
+}
+
+// Input group styles
+.input-group {
+    .input-group-text {
+        padding: 0.75rem 1rem;
+        background-color: $input-bg;
+        border: 1px solid $input-border-color;
+        
+        @media (max-width: 768px) {
+            padding: 0.625rem 0.875rem;
+        }
+
+        .fas {
+            font-size: 1rem;
+            color: $gray-600;
+            
+            @media (max-width: 768px) {
+                font-size: 0.875rem;
+            }
+        }
+    }
 }
