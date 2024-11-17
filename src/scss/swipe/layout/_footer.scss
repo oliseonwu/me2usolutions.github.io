@@ -107,3 +107,46 @@
     bottom: 25px;
     left: 25px;
 }
+
+.footer {
+    @media (max-width: 767.98px) {
+        .row.align-items-center {
+            gap: 2rem;
+            
+            // Logo section
+            .col-auto {
+                width: 100%;
+                text-align: center;
+            }
+            
+            // Main nav
+            .col {
+                width: 100%;
+                
+                .nav {
+                    gap: 0.5rem;
+                    
+                    .nav-item {
+                        width: 100%;
+                        
+                        .nav-link {
+                            padding: 0.75rem;
+                            border-bottom: 1px solid #e9ecef !important;
+                            font-size: 1.1rem;
+                            transition: none !important;
+                        }
+                    }
+                }
+            }
+            
+            // Terms/Privacy section
+            .col-auto:last-child {
+                width: 100%;
+                
+                .nav {
+                    justify-content: center;
+                }
+            }
+        }
+    }
+}
