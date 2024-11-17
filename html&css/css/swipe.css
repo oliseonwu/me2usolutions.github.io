@@ -30959,6 +30959,44 @@ label {
     left: 25px;
 }
 
+@media (max-width: 767.98px) {
+    .footer .row.align-items-center {
+        gap: 2rem;
+    }
+
+    .footer .row.align-items-center .col-auto {
+        width: 100%;
+        text-align: center;
+    }
+
+    .footer .row.align-items-center .col {
+        width: 100%;
+    }
+
+    .footer .row.align-items-center .col .nav {
+        gap: 0.5rem;
+    }
+
+    .footer .row.align-items-center .col .nav .nav-item {
+        width: 100%;
+    }
+
+    .footer .row.align-items-center .col .nav .nav-item .nav-link {
+        padding: 0.75rem;
+        border-bottom: 1px solid #e9ecef !important;
+        font-size: 1.1rem;
+        transition: none !important;
+    }
+
+    .footer .row.align-items-center .col-auto:last-child {
+        width: 100%;
+    }
+
+    .footer .row.align-items-center .col-auto:last-child .nav {
+        justify-content: center;
+    }
+}
+
 /**
  * = Sidebars
  */
