@@ -151,9 +151,9 @@
 
 .attribution-container {
     display: flex;
-    flex-wrap: wrap;
-    gap: 1rem;
-    justify-content: space-between;
+    // flex-wrap: wrap;
+    // gap: 1rem;
+    // justify-content: space-between;
     
     .attribution-link {
         @media (max-width: 767.98px) {
