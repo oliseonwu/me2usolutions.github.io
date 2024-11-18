@@ -30857,143 +30857,135 @@ label {
 }
 
 /**
- * = Footers
+ * Footer Component Styles
+ * ---------------------
+ * Main footer styling with responsive design
  */
 .footer {
     position: relative;
+    background-color: #f8f9fa;
+    border-top: 1px solid rgba(0, 0, 0, 0.05);
 }
 
 .footer h3, .footer .h3, .footer h5, .footer .h5, .footer .h3, .footer .h5 {
     font-size: 1.15rem;
     margin-bottom: 1.25rem;
+    color: #2d3748;
 }
 
 .footer ul {
-    margin-bottom: 0;
+    margin: 0;
     padding: 0;
     list-style: none;
 }
 
 .footer ul li {
     display: inline-block;
+    margin: 0 0.75rem;
 }
 
 .footer ul li a {
+    color: #4a5568;
+    font-weight: 500;
     text-decoration: none;
     position: relative;
     display: block;
+    padding: 0.5rem 0;
 }
 
-.footer ul li .btn {
-    margin: 0;
+.footer ul li a:hover {
+    color: #2d3748;
 }
 
-.footer ul.links-horizontal:first-child a {
-    padding-left: 0;
+.footer .sticky-right {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    z-index: 99;
 }
 
-.footer ul.links-horizontal:last-child a {
-    padding-right: 0;
+.footer .sticky-right .btn {
+    background: white;
+    padding: 0.75rem;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    transition: all 0.2s ease;
 }
 
-.footer ul.footer-links li {
-    display: block;
-    margin-left: -5px;
-    margin-right: -5px;
+.footer .sticky-right .btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
 }
 
-.footer ul.footer-links li a {
-    padding: 5px;
-    color: #183B56 !important;
+.footer .container {
+    padding: 2rem 1rem;
 }
 
-.footer ul.footer-links li a:hover {
-    color: #183B56 !important;
+.footer .navbar-brand-light {
+    color: #2d3748;
+    transition: color 0.2s ease;
 }
 
-.footer ul.icon-box span {
-    line-height: 1.7;
+.footer .navbar-brand-light:hover {
+    color: #1a202c;
 }
 
-.footer .social-buttons a,
-  .footer .social-buttons .btn {
-    margin-top: 5px;
-    margin-bottom: 5px;
+.footer hr {
+    margin: 2rem 0;
+    opacity: 0.1;
 }
 
-.footer .footer-brand {
-    font-size: 1.25rem;
-    font-weight: 500;
-}
-
-.footer .footer-brand img, .footer .footer-brand svg {
-    width: 30px;
-}
-
-.footer .footer-brand:hover, .footer .footer-brand:focus {
-    color: #171f38;
-}
-
-.footer .footer-brand.brand-sm img, .footer .footer-brand.brand-sm svg {
-    width: 25px;
-}
-
-.footer .copyright {
+.footer .attribution-link {
+    color: #718096;
     font-size: 0.875rem;
 }
 
-.footer .pull-center {
-    display: inline-block;
-    float: none;
-}
-
-.sticky-right {
-    position: fixed;
-    bottom: 25px;
-    right: 25px;
-}
-
-.sticky-left {
-    position: fixed;
-    bottom: 25px;
-    left: 25px;
+.footer .attribution-link:hover {
+    color: #4a5568;
+    text-decoration: none;
 }
 
 @media (max-width: 767.98px) {
+    .footer .nav {
+        flex-direction: column;
+        gap: 0.5rem;
+        text-align: center;
+    }
+
+    .footer .nav .nav-item {
+        width: 100%;
+    }
+
+    .footer .nav .nav-item .nav-link {
+        display: block;
+        padding: 0.75rem;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    }
+
+    .footer .nav .nav-item .nav-link:hover {
+        background: rgba(0, 0, 0, 0.02);
+    }
+
     .footer .row.align-items-center {
         gap: 2rem;
     }
 
-    .footer .row.align-items-center .col-auto {
+    .footer .row.align-items-center .col-auto, .footer .row.align-items-center .col {
         width: 100%;
         text-align: center;
     }
+}
 
-    .footer .row.align-items-center .col {
-        width: 100%;
-    }
+.attribution-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: space-between;
+}
 
-    .footer .row.align-items-center .col .nav {
-        gap: 0.5rem;
-    }
-
-    .footer .row.align-items-center .col .nav .nav-item {
-        width: 100%;
-    }
-
-    .footer .row.align-items-center .col .nav .nav-item .nav-link {
-        padding: 0.75rem;
-        border-bottom: 1px solid #e9ecef !important;
-        font-size: 1.1rem;
-        transition: none !important;
-    }
-
-    .footer .row.align-items-center .col-auto:last-child {
-        width: 100%;
-    }
-
-    .footer .row.align-items-center .col-auto:last-child .nav {
-        justify-content: center;
+@media (max-width: 767.98px) {
+    .attribution-container .attribution-link {
+        flex: 1 1 40%;
+        text-align: center;
     }
 }
 
