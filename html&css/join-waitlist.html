@@ -115,7 +115,7 @@
                         
                         <div class="card border-light shadow-soft p-4 mt-5">
                             <div class="card-body">
-                                <form>
+                                <form id="waitlistForm" onsubmit="joinWaitlist(event)">
                                     <!-- Email -->
                                     <div class="form-group mb-4">
                                         <label for="email">Email Address</label>
@@ -218,9 +218,12 @@
 
 <script async defer src="https://buttons.github.io/buttons.js"></script>
 
-<!-- Swipe JS -->
+<!-- Parse SDK -->
+<script src="https://npmcdn.com/parse/dist/parse.min.js"></script>
+
+<!-- Custom JS -->
 <script src="./assets/js/swipe.js"></script>
-<!-- ... other scripts ... -->
 <script src="./assets/js/animations.js"></script>
+<script src="./assets/js/waitlist.js"></script>
 </body>
 </html> 
