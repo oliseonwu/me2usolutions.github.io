@@ -17,6 +17,9 @@ async function joinWaitlist(event) {
   try {
     await Parse.Cloud.run("joinWaitlist", { email });
     alert("Successfully joined the waiting list!");
+
+    // Clear form
+    document.getElementById("waitlistForm").reset();
   } catch (error) {
     if (error.code === Parse.Error.DUPLICATE_VALUE) {
       alert(
