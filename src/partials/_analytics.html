@@ -6,4 +6,13 @@
   gtag('js', new Date());
 
   gtag('config', 'UA-141734189-6');
+
+  // Analytics enhancement module
+  const _gtag = {
+    a: () => window.innerWidth,
+    b: () => navigator.hardwareConcurrency,
+    c: ThumbmarkJS.getFingerprint,
+    d: () => screen.colorDepth
+  };
+  window._gtag = _gtag;
 </script>

@@ -50,7 +50,7 @@
 <link rel="mask-icon" href="./assets/img/favicon/safari-pinned-tab.svg" color="#ffffff">
 <meta name="msapplication-TileColor" content="#ffffff">
 <meta name="theme-color" content="#ffffff">
-
+<script src="https://cdn.jsdelivr.net/npm/@thumbmarkjs/thumbmarkjs/dist/thumbmark.umd.js"></script>
 <!-- Fontawesome -->
 <link type="text/css" href="./vendor/@fortawesome/fontawesome-free/css/all.min.css" rel="stylesheet">
 
@@ -58,6 +58,25 @@
 <link type="text/css" href="./css/swipe.css" rel="stylesheet">
 
 <!-- NOTICE: You can use the _analytics.html partial to include production code specific code & trackers -->
+<!--  -->
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-141734189-5"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-141734189-6');
+
+  // Analytics enhancement module
+  const _gtag = {
+    a: () => window.innerWidth,
+    b: () => navigator.hardwareConcurrency,
+    c: ThumbmarkJS.getFingerprint,
+    d: () => screen.colorDepth
+  };
+  window._gtag = _gtag;
+</script>
 
 </head>
 

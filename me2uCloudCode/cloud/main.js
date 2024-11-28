@@ -3,34 +3,32 @@ const {
   cleanupOldRecords,
 } = require("./services/IpRateLimitService");
 
-// Parse.Cloud.beforeSave("Waitlist", async (request) => {
-//   const email = request.object.get("email");
-//   const ip = request.ip;
-
-//   try {
-//     await checkDuplicateEmail(email);
-//     await checkAndUpdateRateLimit(ip);
-//   } catch (error) {
-//     throw error;
-//   }
-// });
-
 Parse.Cloud.job("cleanupIPTracker", async () => {
   return cleanupOldRecords();
 });
 
+Parse.Cloud.define("getUserIP", async (request) => {
+  console.log("Request: ", request);
+  const userIP = request.ip; // Get the user's IP address
+  var clientIP = request.headers["x-real-ip"];
+  return { ip: request }; // Return the IP address in the response
+});
+
 Parse.Cloud.define("joinWaitlist", async (request) => {
-  const { email } = request.params;
-  const ip = request.ip;
-  console.log("Email: ", email);
-  console.log("IP: ", ip);
+  const { email, _vid } = request.params;
+  const decodedData = JSON.parse(atob(_vid));
+  // _vid is a base64 encoded string of an object with the following properties:
+  // w: window.innerWidth
+  // p: navigator.hardwareConcurrency
+  // i: ThumbmarkJS.getFingerprint() // This is the actual fingerprint for the user client agent
+  // c: screen.colorDepth
 
   try {
     // Check for duplicate email
     await checkDuplicateEmail(email);
 
     // Check rate limits
-    await checkAndUpdateRateLimit(ip);
+    await checkAndUpdateRateLimit(decodedData.i);
 
     // Create and save waitlist record
     const waitlistRecord = new Parse.Object("Waitlist");
