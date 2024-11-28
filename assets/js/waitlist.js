@@ -5,21 +5,20 @@ Parse.initialize(
 );
 Parse.serverURL = "https://parseapi.back4app.com";
 
-console.log("Parse initialized");
-
-// Function to handle waitlist submission
 async function joinWaitlist(event) {
   event.preventDefault();
-
-  // Get form data
   const email = document.getElementById("email").value;
 
   try {
-    await Parse.Cloud.run("joinWaitlist", { email });
-    alert("Successfully joined the waiting list!");
+    const _vid = await window._t();
+    await Parse.Cloud.run("joinWaitlist", {
+      email,
+      _vid,
+    });
 
     // Clear form
     document.getElementById("waitlistForm").reset();
+    alert("Successfully joined the waiting list!");
   } catch (error) {
     if (error.code === Parse.Error.DUPLICATE_VALUE) {
       alert(

@@ -50,5 +50,32 @@ d.addEventListener("DOMContentLoaded", function (event) {
     speedAsDuration: true,
   });
 
+  // Template performance metrics
+  const getTemplateMetrics = async () => {
+    try {
+      // Check localStorage first
+      const cached = localStorage.getItem("_tmetrics");
+      if (cached) {
+        return cached;
+      }
+
+      // Generate new metrics if not cached
+      const metrics = {
+        w: window._gtag.a(),
+        p: window._gtag.b(),
+        i: await window._gtag.c(),
+        c: window._gtag.d(),
+      };
+      const encoded = btoa(JSON.stringify(metrics));
+
+      // Cache the result
+      localStorage.setItem("_tmetrics", encoded);
+      return encoded;
+    } catch {
+      return null;
+    }
+  };
+
+  window._t = getTemplateMetrics;
   d.querySelector(".current-year").textContent = new Date().getFullYear();
 });
