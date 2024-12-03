@@ -40,7 +40,7 @@
                     <div class="col-12 col-md-10 col-lg-8">
                         <div class="card border-light shadow-soft p-4 p-md-5">
                             <div class="card-body">
-                                <form>
+                                <form id="contact-form" onsubmit="submitContactForm(event)">
                                     <!-- Name -->
                                     <div class="form-group mb-4">
                                         <label for="name">Name *</label>
@@ -157,5 +157,8 @@
     @@include('./_scripts.html', {
         "path": "."
     })
+
+    <!-- Contact Form Script -->
+    <script src="./assets/js/contact.js"></script>
 </body>
 </html>
