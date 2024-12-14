@@ -14,8 +14,43 @@ Parse.Cloud.define("getUserIP", async (request) => {
   return { ip: request }; // Return the IP address in the response
 });
 
+Parse.Cloud.define("submitContactForm", async (request) => {
+  const { name, email, company, message, _vid } = request.params;
+  const decodedData = JSON.parse(atob(_vid));
+  // Input validation
+  if (!name || !email || !company || !_vid) {
+    throw new Error("Required fields are missing");
+  }
+
+  try {
+    // Check rate limits
+    await checkAndUpdateRateLimit(decodedData.i);
+
+    // Create new contact entry
+    const contactUsRecord = new Parse.Object("Contact_Us");
+
+    contactUsRecord.set("full_name", name);
+    contactUsRecord.set("work_email", email);
+    contactUsRecord.set("company_name", company);
+    contactUsRecord.set("message", message);
+
+    // Save to database
+    await contactUsRecord.save(null, { useMasterKey: true });
+
+    return { success: true };
+  } catch (error) {
+    console.error("Error in submitContactForm:", error);
+    throw new Error("Failed to submit contact form");
+  }
+});
+
 Parse.Cloud.define("joinWaitlist", async (request) => {
   const { email, _vid } = request.params;
+
+  if (!email || !_vid) {
+    throw new Error("Required fields are missing");
+  }
+
   const decodedData = JSON.parse(atob(_vid));
   // _vid is a base64 encoded string of an object with the following properties:
   // w: window.innerWidth
@@ -37,7 +72,8 @@ Parse.Cloud.define("joinWaitlist", async (request) => {
 
     return { success: true, message: "Successfully joined waitlist" };
   } catch (error) {
-    throw error;
+    console.error("Error in joinWaitlist:", error);
+    throw new Error("Failed to join waitlist");
   }
 });
 
