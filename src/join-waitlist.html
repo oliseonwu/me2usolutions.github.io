@@ -14,6 +14,20 @@
         "classes": "navbar-light navbar-theme-secondary"
     })
     <main>
+        <!-- Add the feedback popup -->
+        <div class="feedback-popup" id="feedbackPopup">
+            <div class="popup-content">
+                <h2 class="popup-title">Help Us Improve</h2>
+                <p class="popup-text">
+                    We value your feedback! Would you be willing to take a quick survey to help improve ME2U Solutions? Your input will help us enhance our services.
+                </p>
+                <div class="popup-buttons">
+                    <button class="btn btn-secondary" onclick="dismissPopup()">Dismiss</button>
+                    <button class="btn btn-primary" onclick="acceptFeedback()">Accept</button>
+                </div>
+            </div>
+        </div>
+
         <section class="section section-header pb-6">
             <div class="container">
                 <div class="d-flex justify-content-center">
@@ -86,5 +100,7 @@
 
     <!-- Waitlist Script -->
     <script src="./assets/js/waitlist.js"></script>
+    <!-- Popup Script -->
+    <script src="./assets/js/popup.js"></script>
 </body>
 </html> 
