@@ -1,0 +1,118 @@
+/**
+ * = Popup
+ */
+
+.feedback-popup {
+    display: none;
+    position: fixed;
+    bottom: $spacer * 2; // Using existing spacing variable
+    right: $spacer * 2;
+    background: $dark; // Using existing color variable
+    border-radius: $border-radius-lg; // Using existing border-radius variable
+    max-width: 400px;
+    box-shadow: $box-shadow-lg; // Using existing shadow variable
+    z-index: $zindex-modal - 1; // Using existing z-index, placing it below modals
+    color: $white;
+    width: auto;
+    transform-origin: bottom right;
+
+    .popup-content {
+        padding: $spacer * 1.5;
+    }
+
+    .popup-title {
+        font-size: $h6-font-size; // Smaller heading size using existing variable
+        font-weight: $font-weight-bold;
+        margin-bottom: $spacer;
+        color: $white;
+        display: block;
+    }
+
+    .popup-text {
+        font-size: $font-size-sm; // Smaller body text
+        line-height: 1.5;
+        margin-bottom: $spacer * 1.5;
+        color: $gray-300;
+    }
+
+    .popup-buttons {
+        display: flex;
+        justify-content: flex-end;
+        gap: $spacer;
+
+        .btn {
+            padding: $spacer * 0.5 $spacer;
+            font-size: $font-size-sm; // Smaller button text
+            
+            &:hover {
+                transform: translateY(-1px);
+            }
+        }
+    }
+
+    // Mobile responsive styles
+    @include media-breakpoint-down(sm) {
+        bottom: 0;
+        right: 0;
+        left: 0;
+        border-radius: 0;
+        max-width: 100%;
+        width: 100%;
+
+        .popup-content {
+            padding: $spacer;
+            max-height: 80vh;
+            overflow-y: auto;
+        }
+
+        .popup-title {
+            font-size: $font-size-base; // Even smaller on mobile
+            margin-bottom: $spacer * 0.75;
+        }
+
+        .popup-text {
+            font-size: $font-size-xs; // Smallest text size for mobile
+            margin-bottom: $spacer;
+            line-height: 1.4;
+        }
+
+        .popup-buttons {
+            gap: $spacer * 0.5;
+            
+            .btn {
+                padding: $spacer * 0.375 $spacer * 0.75;
+            }
+        }
+    }
+}
+
+// Keep only show/hide animations
+.popup-show {
+    animation: popup-fade-in 0.3s ease forwards;
+}
+
+.popup-hide {
+    animation: popup-fade-out 0.3s ease forwards;
+}
+
+@keyframes popup-fade-in {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes popup-fade-out {
+    from {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    to {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+} 

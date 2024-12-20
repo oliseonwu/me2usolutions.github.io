@@ -73,7 +73,12 @@ Parse.Cloud.define("joinWaitlist", async (request) => {
     return { success: true, message: "Successfully joined waitlist" };
   } catch (error) {
     console.error("Error in joinWaitlist:", error);
-    throw new Error("Failed to join waitlist");
+
+    if (error.code === Parse.Error.DUPLICATE_VALUE) {
+      throw error;
+    } else {
+      throw new Error("Failed to join waitlist");
+    }
   }
 });
 
