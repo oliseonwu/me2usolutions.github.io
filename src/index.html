@@ -41,6 +41,11 @@
                         <p class="lead mb-5">
                             A platform helping licensed therapists and clinicians deliver personalized memory care while empowering patients to maintain independence through smart daily routines and gentle reminders.
                         </p>
+
+                        <!-- <div class="mb-6" style="background-color: gray; aspect-ratio: 3/2;  border-radius: 10px;  opacity: 0.5;">
+
+                        </div> -->
+
                         <div>
                             <a href="join-waitlist.html" class="btn btn-join-email btn-lg mb-xl-0 mr-2 mr-md-3">
                                 <span class="d-flex align-items-center">
@@ -59,7 +64,37 @@
                                 </span>
                             </a> -->
                         </div>
+
+                        <!-- <div style="display: flex; justify-content: center;">
+                            <div class="mt-6 mb-5" style="background-color: gray; aspect-ratio: 3/2;  width: 50%; border-radius: 25px;  opacity: 0.2;">
+
+                            </div>
+                        </div> -->
+                        <!-- <div class="mt-6 mb-5" style=" aspect-ratio: 5/3; border: 1px solid #E6E6E6; border-radius: 25px;">
+
+                            <video controls style="width: 100%; height: 100%; padding-left: 10px; padding-right: 10px;" src="./assets/video/me2U-demo.mp4" controls></video>
+                        </div> -->
+                        
+                        <div class="mt-6 mb-5 p-0" style="aspect-ratio: 5/3; border: 1px solid #F2F2F2; border-radius: 25px; position: relative; display: flex; justify-content: center; align-items: center;">
+                            <!-- Video thumbnail with play button overlay -->
+                            <div id="videoThumbnail" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; cursor: pointer; z-index: 2;">
+                                <img src="./assets/img/video-thumbnail2.png" style="width: 100%; height: 100%; object-fit: cover; border-radius: 25px;" alt="Video thumbnail">
+                                <!-- Play button overlay -->
+                                <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); background-color: rgba(0, 0, 0, 0.3); border-radius: 50%; width: 80px; height: 80px; display: flex; align-items: center; justify-content: center;">
+                                    <i class="fas fa-play" style="color: white; font-size: 30px;"></i>
+                                </div>
+                            </div>
+                            
+                            <!-- Video player (hidden initially) -->
+                            <video id="demoVideo" class="video-styles" style="opacity: 0; background-color: #F2F2F2 ;" src="./assets/video/me2U-demo.mp4" controls></video>
+                        </div>
+
+                        
+
                     </div>
+
+                    
+
                     <div class="col-12 justify-content-center">
                         <div class="stat-section">
                             <div class="row align-items-center">
@@ -603,6 +638,8 @@
     @@include('./_scripts.html', {
         "path": "."
     })
+    
+    <script src="./assets/js/videoPlayer.js"></script>
 </body>
 
 </html>
