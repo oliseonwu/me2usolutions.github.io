@@ -1,22 +1,46 @@
-document
-  .getElementById("videoThumbnail")
-  .addEventListener("click", function () {
-    // Hide thumbnail
-    this.style.display = "none";
-    // Show and play video
-    const video = document.getElementById("demoVideo");
-    video.classList.remove("video-hidden");
-    video.classList.add("video-visible");
-    video.play();
+let vimeoPlayer;
+
+document.addEventListener("DOMContentLoaded", function () {
+  const thumbnail = document.getElementById("videoThumbnail");
+  const vimeoContainer = document.getElementById("vimeoContainer");
+  const iframe = document.getElementById("demoVideo");
+
+  // Initialize Vimeo player
+  vimeoPlayer = new Vimeo.Player(iframe);
+
+  if (thumbnail) {
+    thumbnail.addEventListener("click", function () {
+      // Hide thumbnail
+      thumbnail.style.display = "none";
+
+      // Show iframe container
+      vimeoContainer.classList.remove("video-hidden");
+      vimeoContainer.classList.add("video-visible");
+
+      // Play video
+      vimeoPlayer.play();
+    });
+  }
+
+  // Listen for video end
+  vimeoPlayer.on("ended", function () {
+    // Hide video
+    vimeoContainer.classList.remove("video-visible");
+    vimeoContainer.classList.add("video-hidden");
+
+    // Show thumbnail
+    thumbnail.style.display = "block";
+
+    // Reset video
+    vimeoPlayer.setCurrentTime(0);
   });
 
-// Add event listener for when video ends
-document.getElementById("demoVideo").addEventListener("ended", function () {
-  // Hide video
-  this.classList.remove("video-visible");
-  this.classList.add("video-hidden");
-  // Reset video to beginning
-  this.currentTime = 0;
-  // Show thumbnail
-  document.getElementById("videoThumbnail").style.display = "block";
+  vimeoPlayer.on("pause", function () {
+    // Hide video
+    vimeoContainer.classList.remove("video-visible");
+    vimeoContainer.classList.add("video-hidden");
+
+    // Show thumbnail
+    thumbnail.style.display = "block";
+  });
 });
