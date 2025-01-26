@@ -28,11 +28,11 @@ document.addEventListener("DOMContentLoaded", function () {
     vimeoContainer.classList.remove("video-visible");
     vimeoContainer.classList.add("video-hidden");
 
-    // Show thumbnail
-    thumbnail.style.display = "block";
-
     // Reset video
     vimeoPlayer.setCurrentTime(0);
+
+    // Show thumbnail
+    thumbnail.style.display = "block";
   });
 
   vimeoPlayer.on("pause", function () {
