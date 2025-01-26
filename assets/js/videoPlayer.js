@@ -11,7 +11,9 @@ document.addEventListener("DOMContentLoaded", function () {
   if (thumbnail) {
     thumbnail.addEventListener("click", function () {
       // Hide thumbnail
-      thumbnail.style.display = "none";
+      thumbnail.classList.remove("thumbnail-visible");
+      thumbnail.classList.add("thumbnail-hidden");
+      // thumbnail.style.display = "none";
 
       // Show iframe container
       vimeoContainer.classList.remove("video-hidden");
@@ -28,11 +30,14 @@ document.addEventListener("DOMContentLoaded", function () {
     vimeoContainer.classList.remove("video-visible");
     vimeoContainer.classList.add("video-hidden");
 
-    // Reset video
-    vimeoPlayer.setCurrentTime(0);
-
     // Show thumbnail
-    thumbnail.style.display = "block";
+    thumbnail.classList.remove("thumbnail-hidden");
+    thumbnail.classList.add("thumbnail-visible");
+
+    setTimeout(() => {
+      // Reset video
+      vimeoPlayer.setCurrentTime(0);
+    }, 1000);
   });
 
   vimeoPlayer.on("pause", function () {
@@ -41,6 +46,7 @@ document.addEventListener("DOMContentLoaded", function () {
     vimeoContainer.classList.add("video-hidden");
 
     // Show thumbnail
-    thumbnail.style.display = "block";
+    thumbnail.classList.remove("thumbnail-hidden");
+    thumbnail.classList.add("thumbnail-visible");
   });
 });

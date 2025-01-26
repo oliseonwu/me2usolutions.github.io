@@ -38242,6 +38242,26 @@ blockquote .blockquote-footer {
     transition: opacity 0.3s ease;
 }
 
+.thumbnail-styles {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+    z-index: 2;
+    transition: opacity 0.3s ease;
+    border-radius: 25px;
+}
+
+.thumbnail-styles {
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.thumbnail-styles:hover {
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.05);
+}
+
 .video-visible {
     opacity: 1 !important;
     z-index: 3;
@@ -38252,11 +38272,26 @@ blockquote .blockquote-footer {
     z-index: 1;
 }
 
+.thumbnail-visible {
+    opacity: 1 !important;
+}
+
+.thumbnail-hidden {
+    opacity: 0 !important;
+    pointer-events: none;
+}
+
 @media (min-width: 900px) {
     .video-styles {
         border-radius: 25px;
         width: 100%;
         height: 100%;
+    }
+}
+
+@media (max-width: 769px) {
+    .thumbnail-styles:hover {
+        box-shadow: 0 0 30px rgba(0, 0, 0, 0);
     }
 }
 
